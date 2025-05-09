@@ -536,7 +536,7 @@ Propensity score matching sas psmatch and r psm package matchit
 
     # Extract matched data
 
-    png("d:/png/match_compare")
+    png("d:/png/match_compare.png")
     # Visualize balance assessment
     love.plot(mtch,
               threshold = 0.1,   # Balance threshold
