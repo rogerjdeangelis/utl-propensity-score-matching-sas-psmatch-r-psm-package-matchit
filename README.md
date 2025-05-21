@@ -29,6 +29,29 @@
     Balance covariates in two arms of a clincal trial
     Propensity scoring identifies treatment and control pairs with similar characteristics
 
+        PROC PSMATCH does provide optimized matching:
+    https://go.documentation.sas.com/doc/en/pgmsascdc/v_062/statug/statug_psmatch_details14.htm#statug_psmatch002514
+
+    The underlying linear assignment solver is the same one that is used in PROC OPTNET, PROC OPTMODEL, PROC OPTGRAPH, and PROC OPTNETWORK.
+
+    Comments from SAS-Lers
+    ======================
+    
+    Richard Hockey
+    What I would really like is for psmatch to have an option to enter your own matching
+    criteria and do optimised matching. I have found that I have to use 3rd party macros
+    which I can then edit to acheive this. The best one I've found is %vmatch from Mayo which is very fast as it uses proc optnet.
+
+
+    Rob Pratt
+    PROC PSMATCH does provide optimized matching:
+    https://tinyurl.com/2mbnbmmc
+    https://go.documentation.sas.com/doc/en/pgmsascdc/v_062/statug/statug_psmatch_details14.htm#statug_psmatch002514
+
+    The underlying linear assignment solver is the same one that is used in
+    PROC OPTNET, PROC OPTMODEL, PROC OPTGRAPH, and PROC OPTNETWORK.
+
+
     Problem create this plot
 
                           Standardized Mean Difference (SMD)
