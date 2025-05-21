@@ -1,5 +1,3 @@
-# utl-propensity-score-matching-sas-psmatch-r-psm-package-matchit
-Propensity score matching sas psmatch and r psm package matchit
     %let pgm=utl-propensity-score-matching-sas-psmatch-r-psm-package-matchit;
 
     %stop_submission;
@@ -9,6 +7,7 @@ Propensity score matching sas psmatch and r psm package matchit
           Contents
              1 sas psmatch (solution uses base sas, stat and graph)
              2 r matchit
+             3 options sas psmatch r matchit cobalt
 
     AI QUERIES
     ==========
@@ -53,7 +52,7 @@ Propensity score matching sas psmatch and r psm package matchit
              |                               |                                     |
              | SMD =  MEAN1 - MEAN2          |                                     |
              |    +-------------------  all  |                                     |
-        deg  +   /       2         2    *------* matched                           + deggree
+        deg  +   /       2         2    *------* matched                           + deg
              |  / (StdDev1 + stdDev0)        |                                     |
              |\/  --------------------       |                                     |
              |            2                  |                                     |
@@ -763,6 +762,145 @@ Propensity score matching sas psmatch and r psm package matchit
     /*                                                                                                                        */
     /*                       Standardized Mean Difference                                                                     */
     /**************************************************************************************************************************/
+
+    /*____               _   _
+    |___ /    ___  _ __ | |_(_) ___  _ __  ___   ___  __ _ ___   _ __
+      |_ \   / _ \| `_ \| __| |/ _ \| `_ \/ __| / __|/ _` / __| | `__|
+     ___) | | (_) | |_) | |_| | (_) | | | \__ \ \__ \ (_| \__ \ | |
+    |____/   \___/| .__/ \__|_|\___/|_| |_|___/ |___/\__,_|___/ |_|
+                  |_|
+    */
+
+    AI Query for pavkage options for r matchit and
+    https://www.perplexity.ai/search/please-provide-all-the-options-i.WttSVOQsmHf6pA.6EazA
+    please provide all the options for propensity scoring psm using the r packages
+    please provide all the options for propensity scoring psm using sas psmath
+
+    /*                      _       _     _ _
+     _ __   _ __ ___   __ _| |_ ___| |__ (_) |_
+    | `__| | `_ ` _ \ / _` | __/ __| `_ \| | __|
+    | |    | | | | | | (_| | || (__| | | | | |_
+    |_|    |_| |_| |_|\__,_|\__\___|_| |_|_|\__|
+
+    */
+    R package Matchit
+
+     Parameter       Options/Description                                                         Example/Default
+
+     method         "nearest" (default), "optimal", "full", "genetic", "subclass", "cem"         method   = "optimal"
+     distance       "glm" (logistic regression), "gam", "gbm", "lasso", "ridge", "elasticnet"    distance = "gbm"
+     exact          Variables for exact matching (e.g., exact = c("sex", "age"))                 exact = "married"
+     ratio          Number of controls per treated unit (default: 1)                             ratio = 2
+     replace        TRUE (reuse controls) or FALSE (no replacement)                              replace = FALSE
+     caliper        Maximum allowable distance (e.g., caliper = 0.1)                             caliper   = 0.2
+     std.caliper    TRUE (standardize caliper by SD) or FALSE                                    std.caliper = TRUE
+     discard        Handling units outside common support: "none", "both", "control", "treated"  discard     = "both"
+     reestimate     TRUE (re-estimate propensity scores after discarding) or FALSE               reestimate  = FALSE
+
+    Advance features
+
+    1 Machine learning models: Use distance = "gbm" (gradient boosting) or "lasso" for non-linear propensity scores.
+    2 Exact matching: Force exact matches on critical covariates.
+    3 Subclassification: Divide data into strata using method = "subclass".
+
+    Citations:
+
+    [1]  https://cran.r-project.org/web/packages/AER/AER.pdf
+    [2]  https://pmc.ncbi.nlm.nih.gov/articles/PMC8246231/
+    [3]  https://cran.r-project.org/web/packages/ivmte/vignettes/ivmte.html
+    [4]  https://rpubs.com/mbounthavong/propensity_score_r
+    [5]  https://www.r-causal.org/chapters/08-propensity-scores
+    [6]  https://pmc.ncbi.nlm.nih.gov/articles/PMC11187614/
+    [7]  https://bfi.uchicago.edu/wp-content/uploads/BFI_WP_202001.pdf
+    [8]  https://dlab.berkeley.edu/news/introduction-propensity-score-matching-matchit
+
+    /*                _           _ _
+     _ __    ___ ___ | |__   __ _| | |_
+    | `__|  / __/ _ \| `_ \ / _` | | __|
+    | |    | (_| (_) | |_) | (_| | | |_
+    |_|     \___\___/|_.__/ \__,_|_|\__|
+
+    */
+    R Package Cobalt (Balance Assessment with cobalt)
+
+    Package      Focus      Key Features      Source
+
+    twang          Weighting with GBM            Uses generalized boosted models for propensity scores
+    CBPS           Covariate balancing scores    Optimizes balance during propensity score estimation
+    rollmatch      Longitudinal data             Matches units entering treatment at different time points
+
+    /*                                         _       _
+     ___  __ _ ___   _ __  ___ _ __ ___   __ _| |_ ___| |__
+    / __|/ _` / __| | `_ \/ __| `_ ` _ \ / _` | __/ __| `_ \
+    \__ \ (_| \__ \ | |_) \__ \ | | | | | (_| | || (__| | | |
+    |___/\__,_|___/ | .__/|___/_| |_| |_|\__,_|\__\___|_| |_|
+                    |_|
+    */
+
+     https://chat.deepseek.com/a/chat/s/a93647ab-c59d-4541-8e2c-8fbb462ed5ae
+     please provide all the options for propensity scoring psm using sas psmatch
+
+     PROC PSMATCH Statement Options
+
+     DATA=:                       Input dataset
+     REGION=:                     Common support region (ALL, TREATED, CONTROL, OVERLAP)
+     OBS=:                        Output dataset for matched observations
+     OBSID=:                      Variable name for observation ID
+     PS=:                         Output dataset with propensity scores
+     SEED=:                       Random number seed
+     CALIPER=:                    Caliper width for matching
+     CALIPERMULT=:                Multiplier for caliper width
+     REPLACE=:                    Whether to allow replacement (YES/NO)
+     N=:                          Number of matches per unit (for k:1 matching)
+     DISTANCE=:                   Distance metric (LOGIT, PROBIT, etc.)
+     EXACT=:                      Variables for exact matching
+     GREEDY=:                     Use greedy matching algorithm (YES/NO)
+     METHOD=:                     Matching method (GREEDY, OPTIMAL, etc.)
+     ORDER=:                      Order for matching (DATA, RANDOM, LARGEST, SMALLEST)
+
+     PSMODEL Statement Options
+     LINK=:                       Link function for propensity score model (LOGIT, PROBIT, CLOGLOG)
+     INCLUDE=:                    Variables to always include in model
+     SELECTION=:                  Variable selection method (BACKWARD, FORWARD, STEPWISE, NONE)
+     STOP=:                       Stopping criterion for variable selection
+     DETAILS=:                    Display model details (YES/NO)
+
+     MATCH Statement Options
+     METHOD=:                     Matching method (GREEDY, OPTIMAL, etc.)
+     K=:                          Number of matches per unit
+     CALIPER=:                    Matching caliper
+     REPLACE=:                    Allow replacement (YES/NO)
+     DISTANCE=:                   Distance metric (LOGIT, PROBIT, etc.)
+     EXACT=:                      Variables for exact matching
+     ORDER=:                      Order for matching (DATA, RANDOM, LARGEST, SMALLEST)
+
+     ASSESS Statement Options
+
+     PLOTS=:                      Types of diagnostic plots (ALL, LOVEPLOT, PSGRAPH, etc.)
+     BINS=:                       Number of bins for balance assessment
+     VAR=:                        Variables for balance assessment
+     STANDARDIZE=:                Standardize differences (YES/NO)
+
+
+     OUTPUT Statement Options
+
+     OUT=:                        Output dataset
+     OBS=:                        Output dataset for matched  observations
+     PS=:                         Output dataset with propensity scores
+     STATS=:                      Output dataset with  matching statistics
+
+    Common Matching Methods Available
+
+    Nearest neighbor matching (with or  without replacement)
+     Optimal matching
+     Greedy matching
+     Caliper matching
+     Mahalanobis distance matching
+     Exact matching
+     Stratification/Subclassification
+     Radius matching
+     Kernel matching
+     Local linear matching
 
     /*              _
       ___ _ __   __| |
